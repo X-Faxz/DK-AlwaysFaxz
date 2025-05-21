@@ -1,0 +1,553 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Venture | Dukun</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon-16x16.png" />
+    <link rel="manifest" href="/static/site.webmanifest" />
+
+    <link rel="preconnect" href="//fonts.googleapis.com" />
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin />
+    <link href="//fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/static/css/index.css" />
+    <script src="/static/js/preline.js"></script>
+    <style>
+        /* Text with glowing gradient effect */
+        .enemy-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffffff;
+            background: linear-gradient(45deg, #ff6a00, #ff0000, #800000);
+            background-clip: text;
+            -webkit-background-clip: text;
+            animation: gradient-animation 3s linear infinite, pulse 2s ease-in-out infinite;
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 0 0 25px rgba(255, 0, 0, 0.6), 0 0 35px rgba(255, 0, 0, 0.4);
+            letter-spacing: 3px;
+        }
+		
+		.team-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffffff;
+            background: linear-gradient(45deg, #2196f3, #00bcd4, #1e88e5);
+            background-clip: text;
+            -webkit-background-clip: text;
+            animation: gradient-animation 3s linear infinite, pulse 2s ease-in-out infinite;
+            text-shadow: 0 0 15px rgba(33, 150, 243, 0.8), 0 0 25px rgba(33, 150, 243, 0.6), 0 0 35px rgba(33, 150, 243, 0.4);
+            letter-spacing: 3px;
+        }
+
+        .dark .header-text {
+            background: linear-gradient(to right, #3b82f6, #2563eb, #1d4ed8, #1e40af, #2563eb, #3b82f6);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shine 8s linear infinite;
+            font-weight: 800;
+            text-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .dark .header-text:hover {
+            text-shadow: 0 0 25px rgba(37, 99, 235, 0.5);
+            transform: scale(1.02);
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .title-text {
+            font-size: 1.5rem; /* Size of the text */
+            font-weight: 600; /* Bold text */
+            color: #ffffff;
+            background: linear-gradient(45deg, #ff6a00, #ff0000, #800000);
+            background-clip: text;
+            -webkit-background-clip: text;
+            animation: gradient-animation 3s linear infinite; /* Animation for gradient effect */
+            text-shadow: 0 0 10px rgba(6, 70, 122, 0.8), 0 0 20px rgba(6, 70, 122, 0.6), 0 0 30px rgba(6, 70, 122, 0.4);
+            letter-spacing: 1.5px; /* Space between characters */
+        }
+
+        .bg-red-700 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(220 38 38 / var(--tw-text-opacity, 1));
+        }
+
+    
+        /* Animation for moving gradient effect */
+        @keyframes gradient-animation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Custom table styling */
+        .table {
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .table th {
+            padding: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .table td {
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .table tbody tr {
+            transition: all 0.3s ease;
+        }
+
+        .table tbody tr:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Custom button styling */
+        #go-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: linear-gradient(45deg, #2196f3, #1e88e5);
+        }
+
+        #go-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
+        }
+
+        #go-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        #go-btn:hover:before {
+            left: 100%;
+        }
+
+        /* Input field enhancement */
+        #token {
+            transition: all 0.3s ease;
+        }
+
+        #token:focus {
+            box-shadow: 0 0 15px rgba(33, 150, 243, 0.3);
+        }
+
+        /* Settings modal enhancement */
+        .hs-overlay {
+            backdrop-filter: blur(8px);
+        }
+
+        /* Dark mode enhancements */
+        .dark .table tbody tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .dark #token:focus {
+            box-shadow: 0 0 15px rgba(33, 150, 243, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <header
+        class="sticky flex flex-wrap w-full text-sm bg-white border-b sm:justify-start sm:flex-nowrap dark:bg-neutral-900 dark:border-neutral-700">
+       <nav class="w-full p-4 xl:px-0 mx-auto max-w-[85rem] flex items-center justify-center">
+            <div class="flex items-end justify-center space-x-2"> <!-- Added space-x-2 for spacing between logo and text -->
+                <!-- Logo Image -->
+                <img src="/static/img/nobg1.png" alt="Logo" class="h-1" href="https://t.me/venture_dukun"> <!-- Added logo with class h-8 to control the size -->
+
+                <!-- DK VENTURE Text -->
+                <!--<a class="flex-none text-2xl font-bold text-transparent focus:outline-none focus:opacity-80 bg-gradient-to-tl from-blue-700 to-blue-700 bg-clip-text dark:from-blue-800 dark:to-blue-500" href="https://t.me/venture_dukun" aria-label="Brand">
+                    VENTURE
+                </a>-->
+                <a class="flex-none text-2xl font-bold text-transparent focus:outline-none focus:opacity-80 bg-gradient-to-tl from-blue-700 to-blue-700 bg-clip-text dark:from-blue-800 dark:to-blue-500 header-text" href="https://t.me/venture_dukun" aria-label="Brand">
+                    VENTURE
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="relative w-full px-4 py-6 xl:px-0 mx-auto max-w-[85rem] min-h-[calc(100vh-4.4rem)] space-y-3">
+        <div class="flex items-center w-full gap-1">
+            <div class="w-full">
+                <label for="token" class="sr-only">Label</label>
+                <div class="relative flex rounded-lg shadow-sm">
+                    <div
+                        class="flex items-center w-full px-2 border border-gray-200 shadow-sm border-e-0 ps-10 rounded-s-lg dark:border-neutral-700 ">
+                        <input type="text" id="token" name="token" placeholder="Put your Token here..."
+                            class="w-full text-sm border-none focus:z-10 focus:ring-0 focus:border-none disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 italic">
+                    </div>
+
+                    <div class="absolute inset-y-0 z-20 flex items-center px-4 cursor-pointer start-0 hover:text-blue-500"
+                        id="blur-token">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            id="eye-show">
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2">
+                                <path
+                                    d="M2.062 12.348a1 1 0 0 1 0-.696a10.75 10.75 0 0 1 19.876 0a1 1 0 0 1 0 .696a10.75 10.75 0 0 1-19.876 0" />
+                                <circle cx="12" cy="12" r="3" />
+                            </g>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="eye-off"
+                            class="hidden">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2"
+                                d="m15 18l-.722-3.25M2 8a10.645 10.645 0 0 0 20 0m-2 7l-1.726-2.05M4 15l1.726-2.05M9 18l.722-3.25" />
+                        </svg>
+                    </div>
+                    <button type="button" id="go-btn"
+                        class="inline-flex items-center justify-center px-4 py-3 text-sm font-semibold text-white bg-blue-600 border border-transparent gap-x-2 rounded-e-md hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                        START
+                    </button>
+                </div>
+            </div>
+            <button type="button" class="px-4 py-3 text-white rounded-lg btn-secondary bg-transparent border-none"
+                aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-setting-modal" data-hs-overlay="#hs-setting-modal">
+                <!-- Hamburger Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <g fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 12h16"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 18h16"></path>
+                    </g>
+                </svg>
+            </button>
+        </div>
+
+        <div id="team-table">
+            <div class="my-3 text-xl font-bold text-blue-600"><!-- ps 5 id="team-caption"-->
+                <span class="team-text">⭐ TEAM</span>
+            </div>
+            <div class="flex flex-col">
+                <div class="overflow-x-auto">
+                    <div class="inline-block min-w-full align-middle">
+                        <div class="overflow-hidden border border-blue-600 rounded-lg dark:border-neutral-700">
+                            <table class="table min-w-full divide-y divide-gray-200 w-fit">
+                                <thead class="bg-blue-600 text-white">
+                                    <tr>
+                                        <th scope="col" style="width: 10%" class="text-white dark:text-white">
+                                            UID
+                                        </th>
+                                        <th scope="col" style="width: 20%" class="text-white dark:text-white">
+                                            Name
+                                        </th>
+                                        <th scope="col" style="width: 20%" class="text-white dark:text-white"> 
+                                            Squad
+                                        </th>
+                                        <th scope="col" style="width: 25%" class="text-white dark:text-white">
+                                            Rank
+                                        </th>
+                                        <th scope="col" style="width: 15%" class="text-white dark:text-white"> 
+                                            Win Rates
+                                        </th>
+                                        <th scope="col" style="width: 10%" class="text-white dark:text-white"> <!--text-center -->
+                                            Hero Details
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="text-center" colspan="6">
+                                            Waiting...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="enemy-table">
+            <div class="my-3 text-xl font-bold text-red-600">
+                <span class="enemy-text">⭐ ENEMY</span>
+            </div>
+            <div class="flex flex-col">
+                <div class="overflow-x-auto">
+                    <div class="inline-block min-w-full align-middle">
+                        <div class="overflow-hidden border border-red-600 rounded-lg dark:border-neutral-700">
+                            <table class="table min-w-full divide-y divide-gray-200 w-fit">
+                                <thead class="bg-red-700 text-white">
+                                    <tr>
+                                        <th scope="col" style="width: 10%" class="text-white dark:text-white">
+                                            UID
+                                        </th>
+                                        <th scope="col" style="width: 20%" class="text-white dark:text-white"> 
+                                            Name
+                                        </th>
+                                        <th scope="col" style="width: 20%" class="text-white dark:text-white">
+                                            Squad
+                                        </th>
+                                        <th scope="col" style="width: 25%" class="text-white dark:text-white">
+                                            Rank
+                                        </th>
+                                        <th scope="col" style="width: 15%" class="text-white dark:text-white">
+                                            Win Rates
+                                        </th>
+                                        <th scope="col" style="width: 10%" class="text-white dark:text-white"> <!--text-center -->
+                                            Hero Details
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="text-center" colspan="6">
+                                            Waiting...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--<p class="text-sm text-neutral-600 dark:text-neutral-400 flex items-center">
+            *Win Rate for this Season
+            <div id="token-expiration" class="text-sm text-black dark:text-neutral-400 mr-2"></div>
+            <span class="text-sm text-black dark:text-neutral-400">Shown Win Rates are for the current season (Ranked). </span>
+        </p>.-->
+
+        <p class="text-sm text-neutral-600 dark:text-neutral-400">
+            <!--*Win Rate for this Season.-->
+            <div id="token-expiration" class="text-sm text-black dark:text-neutral-400" style="display: inline-block; font-style: italic;"></div>
+        </p>
+        
+        
+    </main>
+
+    <div id="hs-setting-modal"
+        class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none transition-opacity duration-500"
+        role="dialog" tabindex="-1" aria-labelledby="hs-setting-modal-label">
+        <div class="m-3 mt-0 transition-all ease-out opacity-0 hs-overlay-open:mt-20 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 hs-overlay-close:mt-0 hs-overlay-close:opacity-0 hs-overlay-close:duration-300 sm:max-w-lg sm:w-full sm:mx-auto">
+            <div class="flex flex-col w-full bg-white border shadow-xl pointer-events-auto rounded-2xl dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-lg">
+                <div class="flex items-center justify-center px-4 py-3 border-b dark:border-neutral-700">
+                    <h3 id="hs-setting-modal-label" class="font-bold text-lg text-gray-800 dark:text-white text-center">
+                        SETTINGS
+                    </h3>
+                </div>
+                <div class="p-4 overflow-y-auto">
+                    <div class="mt-3 space-y-4">
+                        <div class="font-medium">Theme Setting:</div>
+                        <div class="flex items-center gap-4">
+                            <div class="relative inline-block">
+                                <input type="checkbox" id="darkSwitch" data-hs-theme-switch="" class="peer relative shrink-0 w-[4.25rem] h-9 p-px bg-gray-100 border border-gray-200 text-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none checked:bg-none checked:text-blue-100 checked:border-blue-200 focus:checked:border-blue-200 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-800/30 dark:checked:border-blue-800 dark:focus:ring-offset-gray-600 before:inline-block before:w-8 before:h-8 before:bg-white checked:before:bg-blue-600 before:translate-x-0 checked:before:translate-x-full before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-neutral-400 dark:checked:before:bg-blue-500" />
+                                <label for="darkSwitch" class="sr-only">switch</label>
+                                <span class="peer-checked:text-blue-600 text-white size-8 absolute top-0.5 start-0.5 flex justify-center items-center pointer-events-none transition-colors ease-in-out duration-200 dark:text-neutral-500">
+                                    <!-- New icon for Dark mode (Moon) -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="1.5" />
+                                        <path d="M12 2c-.572 0-1.137.06-1.693.171a8.06 8.06 0 0 0 1.694 15.657c4.418 0 8-3.582 8-8s-3.582-8-8-8z" fill="none" stroke="currentColor" stroke-width="1.5" />
+                                    </svg>
+                                </span>
+                                <span class="peer-checked:text-white size-8 absolute top-0.5 end-0.5 flex justify-center items-center pointer-events-none transition-colors ease-in-out duration-200 dark:text-neutral-500">
+                                    <!-- New icon for Light mode (Sun) -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5" />
+                                        <path d="M12 2v2m0 16v2m-8-8H2m18 0h2m-3.535-5.535l1.415 1.415m-12.728 0l1.414-1.415m0 12.728l1.415-1.415m-12.728 0l1.414 1.415" fill="none" stroke="currentColor" stroke-width="1.5" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mt-3 space-y-4">
+                        <div class="font-medium">Config Setting:</div>
+                        <div class="flex">
+                            <input type="checkbox"
+                                class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                                id="autoReady" name="autoReady" />
+                            <label for="autoReady" class="text-sm text-gray-700 ms-3 dark:text-neutral-300">Auto
+                                Ready</label>
+                        </div>
+						<!--<div class="mt-3 space-y-4">
+                            <div class="font-medium">Server Setting:</div>
+                            <select id="channel-option" name="channel-option"
+                                class="block w-full px-4 py-3 text-sm border-gray-200 rounded-lg pe-9 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                                <option value="ch1">Server 1</option>
+                                <option value="ch2">Server 2</option>
+                            </select>
+                        </div>-->
+                    </div>
+                    <div class="mt-3 space-y-4">
+                        <div class="font-medium">Table Setting:</div>
+                        <div class="flex">
+                            <input type="checkbox"
+                                class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                                id="showEnemyOnly" name="showEnemyOnly" />
+                            <label for="showEnemyOnly" class="text-sm text-gray-700 ms-3 dark:text-neutral-300">Show
+                                Enemy Only</label>
+                        </div>
+                        <div class="flex">
+                            <input type="checkbox"
+                                class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                                id="showBattleCount" name="showBattleCount" />
+                            <label for="showBattleCount" class="text-sm text-gray-700 ms-3 dark:text-neutral-300">Show
+                                Battle Count</label>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <label for="win-rates-option" class="block mb-2 text-sm font-medium dark:text-white">Win Rate Setting:</label>
+                        <select id="win-rates-option" name="win-rates-option"
+                            class="block w-full px-4 py-3 text-sm border-gray-200 rounded-lg pe-9 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                            <!--<option value="all">All</option>-->
+                            <!--<option value="total">Total</option>-->
+                            <option value="classic">Classic</option>
+                            <option value="ranked">Ranked</option>
+                            <option value="brawl">Brawl</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between px-4 py-3 border-t gap-x-2 dark:border-neutral-700">
+                    <button type="button"
+                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-white-600 bg-red-200 border border-red-200 rounded-lg shadow-sm gap-x-2 hover:bg-red-50 focus:outline-none focus:bg-red-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-red-900 dark:border-red-800 dark:text-red-200 dark:hover:bg-red-800 dark:focus:bg-red-800"
+                        data-hs-overlay="#hs-setting-modal">
+                        Close
+                    </button>
+                    <button type="button" id="save-setting"
+                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="hs-hero-modal"
+        class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-y-hidden overflow-y-auto pointer-events-none transition-opacity duration-500"
+        role="dialog" tabindex="-1" aria-labelledby="hs-hero-modal-label">
+        <div
+            class="m-3 mt-0 transition-all ease-out opacity-0 hs-overlay-open:mt-20 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 hs-overlay-close:mt-0 hs-overlay-close:opacity-0 hs-overlay-close:duration-300 sm:max-w-lg sm:w-full sm:mx-auto">
+            <div
+                class="flex flex-col w-full bg-white border shadow-sm pointer-events-auto rounded-xl dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-neutral-700/70">
+                <div class="flex items-center justify-between px-4 py-3 border-b dark:border-neutral-700">
+                    <h3 id="hs-hero-modal-label" class="font-bold text-gray-800 dark:text-white">
+                        Hero Details
+                    </h3>
+                    <button type="button"
+                        class="inline-flex items-center justify-center text-gray-800 bg-gray-100 border border-transparent rounded-full size-8 gap-x-2 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600"
+                        aria-label="Close" data-hs-overlay="#hs-hero-modal">
+                        <span class="sr-only">Close</span>
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 6 6 18"></path>
+                            <path d="m6 6 12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="p-4 overflow-y-auto">
+                    <div class="flex flex-col">
+                        <div class="overflow-y-auto">
+                            <div class="inline-block min-w-full align-middle">
+                                <div class="overflow-hidden border rounded-lg dark:border-neutral-700">
+                                    <table class="table min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
+                                        <thead class="bg-gray-50 dark:bg-neutral-700">
+                                            <tr>
+                                                <th scope="col" class="w-1/4">Hero</th>
+                                                <th scope="col" class="w-1/4">MMR</th>
+                                                <th scope="col" class="w-1/4">Win Rates</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="hero-mmr-table-body" class="divide-y divide-gray-200 dark:divide-neutral-700">
+                                            <!-- Data will be populated dynamically -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm italic text-neutral-600 dark:text-neutral-400" style="margin-top: 15px;">
+                        *Shown details are for the current season (Ranked).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!---<div class="modal fade" id="tutorialModal" tabindex="-1" aria-labelledby="tutorialModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tutorialModalLabel">Information</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>What's New ?</p>
+                    <ul>
+                        <li>Win Rates Shown Ranked. </li>
+                        <li>Added sound effects when you successfully find an enemy while you are not focused on the web.</li>
+                        <li>Win Rates Update, win rates will display statistics with real players (does not count total matches/match wins when playing against bots/invalid matches).</li>
+                        <li>Added each player's flag/country with emoji (Smartphone) or flag/country code (Windows).</li>
+                    </ul>
+                    <p>Last Update 9 April 2025.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Got it!</button>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+    <script src="//code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="/static/js/alert.js"></script>
+    <script src="/static/js/rng.js"></script>
+    <script src="/static/js/index.js?1747819335"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize all HSToggle elements
+            [].slice.call(document.querySelectorAll('[data-hs-toggle]'))
+                .forEach(function (toggleEl) {
+                    new HSToggle(toggleEl).init();
+                });
+
+            // Initialize all HSOverlay elements
+            [].slice.call(document.querySelectorAll('[data-hs-overlay]'))
+                .forEach(function (overlayEl) {
+                    new HSOverlay(overlayEl).init();
+                });
+        });
+    </script>
+</body>
+
+</html>
